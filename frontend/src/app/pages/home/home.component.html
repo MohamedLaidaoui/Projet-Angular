@@ -1,0 +1,27 @@
+<div class="flex flex-col min-h-screen bg-gray-100">
+    <!-- Navbar -->
+    <app-header></app-header>
+  
+    <!-- Main content -->
+    <div class="flex-grow container mx-auto px-4 py-8">
+      <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-6 text-center text-deep-purple-600">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <mat-card class="bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105" *ngFor="let project of projects">
+            <mat-card-title class="text-xl font-semibold text-deep-purple-700">{{ project.name }}</mat-card-title>
+            <mat-card-content>
+              <p class="text-gray-700">{{ project.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <a mat-button [routerLink]="['/project', project.id]" class="text-deep-purple-500 hover:text-deep-purple-700 mt-2 inline-block">View Project</a>
+            </mat-card-actions>
+            
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Footer -->
+    <app-footer></app-footer>
+  </div>
+  

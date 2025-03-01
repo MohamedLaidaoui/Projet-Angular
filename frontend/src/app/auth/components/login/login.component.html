@@ -1,0 +1,23 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+      <h2 class="text-2xl font-bold mb-6 text-center" i18n="login_header">Login</h2>
+      <form (ngSubmit)="login()" #loginForm="ngForm" autocomplete="off">
+        <mat-form-field appearance="fill" class="w-full mb-4">
+          <mat-label i18n="email">Email</mat-label>
+          <input matInput [(ngModel)]="email" name="email" required #emailField="ngModel" aria-label="email" autocomplete="off">
+          <mat-error *ngIf="emailField.invalid && emailField.touched" i18n="email_required">Email is required</mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="fill" class="w-full mb-4">
+          <mat-label i18n="password">Password</mat-label>
+          <input matInput [(ngModel)]="password" name="password" type="password" required #passwordField="ngModel" aria-label="Password" autocomplete="off">
+          <mat-error *ngIf="passwordField.invalid && passwordField.touched" i18n="password_required">Password is required</mat-error>
+        </mat-form-field>
+      
+        <button mat-raised-button color="primary" class="w-full mb-4" [disabled]="loginForm.invalid" i18n="login">Login</button>
+      </form>
+      <div class="text-center">
+        <a routerLink="/register" class="text-blue-500 hover:underline" i18n="create_account">Create an account?</a>
+      </div>
+    </div>
+  </div>

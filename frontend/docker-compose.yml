@@ -1,14 +1,14 @@
-version: '3.7'
+version: '3'
 
 services:
   frontend:
     build:
       context: .
-      target: dev  
+      dockerfile: Dockerfile
     ports:
-      - "4200:4200"  
+      - "4200:4200"   # expose le port 4200 du conteneur pour l'accès au frontend
     volumes:
-      - .:/app  
-      - /app/node_modules  
-    environment:
-      - CHOKIDAR_USEPOLLING=true  # Pour la détection des changements de fichiers dans Docker
+      - .:/app    # Mappe ton répertoire local dans le conteneur pour la surveillance
+      - /app/node_modules   # Permet de ne pas réinstaller les modules dans le conteneur
+    command: npm start      # Lance le serveur de développement Angular
+
